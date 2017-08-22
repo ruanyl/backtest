@@ -28,7 +28,7 @@ const createBacktest = (strategy, props) => (rawData, cash = 100000) => {
       ...last(transactions),
       date: d.date,
     }
-    const order = strategy(take(i + 1, data), transaction.cash, transaction.keep)
+    const order = strategy(take(i + 1, data), transaction)
 
     if (order.volume !== 0) {
       transaction = trade(order, transaction)
