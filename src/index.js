@@ -34,7 +34,7 @@ const createBacktest = (strategy, props) => (rawData, cash = 100000) => {
       transaction = trade(order, transaction)
     }
 
-    transaction.total = transaction.cash + (transaction.price * transaction.keep)
+    transaction.total = transaction.cash + (d.close * transaction.keep)
     transactions.push(transaction)
   })
   return transactions
